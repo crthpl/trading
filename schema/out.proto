@@ -1,0 +1,6 @@
+syntax = "proto3";
+package websocket_api;
+
+message Out {
+  int64 market_id = 1;
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+package websocket_api;
+
+import "portfolio.proto";
+import "market.proto";
+import "market-settled.proto";
+import "order-cancelled.proto";
+import "order-created.proto";
+import "payment.proto";
+import "payments.proto";
+import "request-failed.proto";
+import "out.proto";
+import "user.proto";
+import "users.proto";
+import "redeem.proto";
+
+message ServerMessage {
+  string request_id = 19;
+  oneof message {
+    Portfolio portfolio = 1;
+    Market market_data = 2;
+    Market market_created = 3;
+    MarketSettled market_settled = 4;
+    OrderCreated order_created = 5;
+    OrderCancelled order_cancelled = 6;
+    Payments payments = 7;
+    Payment payment_created = 8;
+    Out out = 9;
+    Authenticated authenticated = 10;
+    RequestFailed request_failed = 11;
+    User user_created = 12;
+    Users users = 13;
+    ActingAs acting_as = 14;
+    Ownership ownership_received = 15;
+    Ownerships ownerships = 16;
+    OwnershipGiven ownership_given = 17;
+    Redeemed redeemed = 18;
+  }
+}
+message Authenticated {}
+message ActingAs {
+  string user_id = 1;
+}
+message Ownership {
+  string of_bot_id = 1;
+}
+message Ownerships {
+  repeated Ownership ownerships = 1;
+}
+message OwnershipGiven {}

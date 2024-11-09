@@ -1,0 +1,7 @@
+syntax = "proto3";
+package websocket_api;
+
+message MarketSettled {
+  int64 id = 1;
+  double settle_price = 2;
+}

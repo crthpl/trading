@@ -1,0 +1,11 @@
+syntax = "proto3";
+package websocket_api;
+
+import "side.proto";
+
+message CreateOrder {
+  int64 market_id = 2;
+  double price = 5;
+  double size = 6;
+  Side side = 7;
+}
